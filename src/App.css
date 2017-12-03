@@ -70,4 +70,8 @@ input{
   background-color: cornflowerblue;
 }
 
+.picList {
+  list-style: none;
+}
+
 
