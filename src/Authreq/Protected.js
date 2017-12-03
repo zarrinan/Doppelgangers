@@ -32,7 +32,7 @@ class Protected extends Component {
         <input className="submit" type="submit"/>
         <ul className="picList">
           { /* Render the list of pics */
-            this.state.pics.map( pic => <li key={pic.id}><img src={pic.text}/></li> )
+            this.state.pics.map( pic => <li key={pic.id}><img src={pic.text}/><img src={pic.text}/><p> You found a match! </p></li> )
           }
         </ul>
       </form>
