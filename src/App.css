@@ -7,8 +7,9 @@
  margin: 0 auto;
  height: 40%;
  width: 40%;
+ margin-bottom: 15px;
   }
-  img:hover {
+  .mainimg:hover {
   -moz-transform: scaleX(-1);    /* Gecko */
   -o-transform: scaleX(-1);      /* Opera */
   -webkit-transform: scaleX(-1); /* Webkit */
@@ -58,9 +59,15 @@
 input{
   font-size: 15px;
   margin: 20px;
-  width: 400px;
+
 }
 
-.picList {
-  list-style: none;
+.long {
+ width: 400px;
 }
+
+.submit:hover {
+  background-color: cornflowerblue;
+}
+
+

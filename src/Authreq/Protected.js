@@ -27,9 +27,9 @@ class Protected extends Component {
       <div>
       <form classname="search" onSubmit={this.addPic.bind(this)}>
       Enter your image URL here to see if you have a Doppelgänger!<br/>
-        <input type="text" ref={ el => this.inputEl = el } placeholder="Enter your URL"/><br/>
+        <input className="long" type="text" ref={ el => this.inputEl = el } placeholder="Enter your URL"/><br/>
 
-        <input type="submit"/>
+        <input className="submit" type="submit"/>
         <ul className="picList">
           { /* Render the list of pics */
             this.state.pics.map( pic => <li key={pic.id}><img src={pic.text}/></li> )
