@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import fire from './fire';
+import firebase from 'firebase';
+import {Link} from 'react-router-dom';
 
-class App extends Component {
+class Protected extends Component {
   constructor(props) {
     super(props);
     this.state = { pics: [] }; // <- set up react state
   }
   componentWillMount(){
     /* Create reference to pics in Firebase Database */
-    let picsRef = fire.database().ref('pics').orderByKey().limitToLast(100);
+    let picsRef = firebase.database().ref('pics').orderByKey().limitToLast(100);
     picsRef.on('child_added', snapshot => {
       /* Update React state when pic is added at Firebase Database */
       let pic = { text: snapshot.val(), id: snapshot.key };
@@ -18,22 +19,28 @@ class App extends Component {
   addPic(e){
     e.preventDefault(); // <- prevent form submit from reloading the page
     /* Send the pic to Firebase */
-    fire.database().ref('pics').push( this.inputEl.value );
+    firebase.database().ref('pics').push( this.inputEl.value );
     this.inputEl.value = ''; // <- clear the input
   }
   render() {
     return (
-      <form onSubmit={this.addPic.bind(this)}>
-        <input type="text" ref={ el => this.inputEl = el }/>
+      <div>
+      <form classname="search" onSubmit={this.addPic.bind(this)}>
+      Enter your image URL here to see if you have a Doppelgänger!<br/>
+        <input type="text" ref={ el => this.inputEl = el } placeholder="Enter your URL"/><br/>
+
         <input type="submit"/>
-        <ul>
+        <ul className="picList">
           { /* Render the list of pics */
-            this.state.pics.map( pic => <li key={pic.id}>{pic.text}</li> )
+            this.state.pics.map( pic => <li key={pic.id}><img src={pic.text}/></li> )
           }
         </ul>
       </form>
+      </div>
     );
   }
 }
 
 export default Protected;
+
+
