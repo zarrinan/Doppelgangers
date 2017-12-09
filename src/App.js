@@ -7,6 +7,7 @@ import Home from './Home'
 import Dashboard from './Authreq/Protected'
 import { logout } from './auth'
 import { firebaseAuth } from './firebase'
+import './App.css'
 
 function PrivateRoute ({component: Component, authed, ...rest}) {
   return (
@@ -60,14 +61,14 @@ export default class App extends Component {
           <nav className="navbar navbar-default navbar-static-top">
             <div className="container">
               <div className="navbar-header">
-                <Link to="/" className="navbar-brand"> Application</Link>
+                <Link to="/" className="navbar-brand"> Doppelganger</Link>
               </div>
               <ul className="nav navbar-nav pull-right">
                 <li>
                   <Link to="/" className="navbar-brand">Home</Link>
                 </li>
                 <li>
-                  <Link to="/dashboard" className="navbar-brand">Protected</Link>
+                  <Link to="/dashboard" className="navbar-brand">Search</Link>
                 </li>
                 <li>
                   {this.state.authed
